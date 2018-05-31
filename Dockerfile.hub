@@ -14,18 +14,16 @@ RUN apt-get update && \
         ca-certificates
 
 # Install miniconda to get jupyterhub
-RUN wget -q https://repo.continuum.io/miniconda/Miniconda3-4.2.12-Linux-x86_64.sh -O /tmp/miniconda.sh  && \
-    echo 'd0c7c71cc5659e54ab51f2005a8d96f3 */tmp/miniconda.sh' | md5sum -c - && \
+RUN wget -q https://repo.continuum.io/miniconda/Miniconda3-4.5.1-Linux-x86_64.sh -O /tmp/miniconda.sh  && \
+    echo '0c28787e3126238df24c5d4858bd0744 */tmp/miniconda.sh' | md5sum -c - && \
     bash /tmp/miniconda.sh -f -b -p /opt/conda && \
     rm /tmp/miniconda.sh
 
-RUN /opt/conda/bin/conda update conda --yes -c conda-forge
-
 RUN /opt/conda/bin/conda install --yes -c conda-forge \
-    python=3.5 \
+    python=3.6.5 \
     notebook=5.0.0 \
     idna=2.5 \
-    jupyterhub=0.7.2 \
+    jupyterhub=0.8.1 \
     'pamela>=0.3' \
     sudospawner=0.4.1 && \
     /opt/conda/bin/conda clean -tipsy
