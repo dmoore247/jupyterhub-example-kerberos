@@ -21,7 +21,9 @@ RUN wget -q https://repo.continuum.io/miniconda/Miniconda3-4.5.1-Linux-x86_64.sh
 
 RUN /opt/conda/bin/conda install --yes -c conda-forge \
     python=3.6.5 \
-    notebook=5.0.0 \
+    pyzmq=17.0.0 \
+    tornado==5.0.2 \
+    notebook=5.5.0 \
     idna=2.5 \
     jupyterhub=0.8.1 \
     'pamela>=0.3' \
